@@ -1,0 +1,25 @@
+PROBLEMS REGARDING THE Feedback.php file.
+
+I have identified some problems which could provide issues on the development.
+
+1. Using of SUPERGLOBALS ($_POST) directly on the query which could compromise the database.
+ - using $_POST['field_name'] and assign it to a variable should do the trick, pretty basic.
+
+2. No serialization / validation on form data.
+- Giving users to inject some unwanted characters from the form could be fatal. There is htmlentities() method freely available for basic serialization of the inputs.
+
+3. No singleton of the database instance. 
+- There should be one instance of our database. We can create a class and have a property to store
+the DB instance. Then, we could create a static method for getting the database instance. 
+It should come from the DB class property if the instance is already created or initialize the DB 
+and store the instance to the property if the property is null.
+
+4. Database credentials should be stored on a config file for centralization.
+- We could create a config.php file, provide an array and store the DB credentials there.
+Then, we could export the contents of the file and be accessed the credentials by our DB class. 
+
+5. No exception handling when executing the query. 
+- We should always keep an eye for exceptions. We could create an exception file like QueryException something like. By this, we could better keep track errors on our test cases.
+
+6. Incorrect data types of columns. TEXT for email ? that's kinda overkill.
+- We could always utilize the varchar data type and limit the allowed characters. 
