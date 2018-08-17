@@ -1,13 +1,9 @@
-# lamp interview
+# LAMP INTERVIEW SOLUTIONS
 
-## Task One
+## Task 1
+Please find the file EmployeePatch.php under src directory.
 
-Run `./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox tests`.
+## Task 2
 
-The test is failing!
+Please find Feedback.txt file on the root directory of this repository.
 
-Provide a patch file that resolves the issue.
-
-## Task Two
-
-Write a document describing any problems you see in `src/Feedback.php` and how we should go about fixing them.
